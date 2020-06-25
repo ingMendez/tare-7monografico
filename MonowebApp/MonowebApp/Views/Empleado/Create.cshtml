@@ -1,0 +1,144 @@
+﻿@model MonowebApp.Models.Empleado
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_LayoutAdminLt.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Empleado</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="IdEmpleado" class="control-label"></label>
+                <input asp-for="IdEmpleado" class="form-control" placeholder="0"/>
+                <span asp-validation-for="IdEmpleado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Codigo" class="control-label"></label>
+                <input asp-for="Codigo" class="form-control" placeholder="0002"/>
+                <span asp-validation-for="Codigo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cedula" class="control-label"></label>
+                <input asp-for="Cedula" class="form-control" placeholder="000-0000000-0"/>
+                <span asp-validation-for="Cedula" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaNacimiento" class="control-label"></label>
+                <input asp-for="FechaNacimiento" class="form-control" />
+                <span asp-validation-for="FechaNacimiento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaIngreso" class="control-label"></label>
+                <input asp-for="FechaIngreso" class="form-control" />
+                <span asp-validation-for="FechaIngreso" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nombre" class="control-label"></label>
+                <input asp-for="Nombre" class="form-control" placeholder="Nombre"/>
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Apellido" class="control-label"></label>
+                <input asp-for="Apellido" class="form-control" placeholder="Apellido" />
+                <span asp-validation-for="Apellido" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sexo" class="control-label"></label>
+                <input asp-for="Sexo" class="form-control" placeholder="Hombre / Mujer" />
+                <span asp-validation-for="Sexo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EstadoCivil" class="control-label"></label>
+                <input asp-for="EstadoCivil" class="form-control" placeholder="Soltero"/>
+                <span asp-validation-for="EstadoCivil" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ocupación" class="control-label"></label>
+                <input asp-for="Ocupación" class="form-control" placeholder="Ocupacion" />
+                <span asp-validation-for="Ocupación" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TipoSangre" class="control-label"></label>
+                <input asp-for="TipoSangre" class="form-control" placeholder="O+"/>
+                <span asp-validation-for="TipoSangre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nacionalidad" class="control-label"></label>
+                <input asp-for="Nacionalidad" class="form-control" placeholder="Dominican" />
+                <span asp-validation-for="Nacionalidad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Religión" class="control-label"></label>
+                <input asp-for="Religión" class="form-control" placeholder="Religion" />
+                <span asp-validation-for="Religión" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Teléfono" class="control-label"></label>
+                <input asp-for="Teléfono" class="form-control" placeholder="809-999-9999"/>
+                <span asp-validation-for="Teléfono" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" placeholder="Empleado@gmai.com" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dirección" class="control-label"></label>
+                <input asp-for="Dirección" class="form-control" placeholder="c// maria trinidad sanchez/ la jungla" />
+                <span asp-validation-for="Dirección" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SalarioM" class="control-label"></label>
+                <input asp-for="SalarioM" class="form-control" placeholder="50,000"/>
+                <span asp-validation-for="SalarioM" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DepartamentoPertene" class="control-label"></label>
+                <input asp-for="DepartamentoPertene" class="form-control" placeholder="Consegieria"/>
+                <span asp-validation-for="DepartamentoPertene" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NombreContactSos" class="control-label"></label>
+                <input asp-for="NombreContactSos" class="form-control" placeholder=" Name sos" />
+                <span asp-validation-for="NombreContactSos" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TelefonoContactSos" class="control-label"></label>
+                <input asp-for="TelefonoContactSos" class="form-control"  placeholder="809-999-9999"/>
+                <span asp-validation-for="TelefonoContactSos" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AfpPertenece" class="control-label"></label>
+                <input asp-for="AfpPertenece" class="form-control"  placeholder="AFP " />
+                <span asp-validation-for="AfpPertenece" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ArsPertenece" class="control-label"></label>
+                <input asp-for="ArsPertenece" class="form-control"  placeholder="ARS "/>
+                <span asp-validation-for="ArsPertenece" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Observaciones" class="control-label"></label>
+                <input asp-for="Observaciones" class="form-control"  placeholder="observacion " />
+                <span asp-validation-for="Observaciones" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

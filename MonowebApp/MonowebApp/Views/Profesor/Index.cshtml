@@ -1,0 +1,163 @@
+﻿@model ReflectionIT.Mvc.Paging.PagingList<MonowebApp.Models.Profesor>
+@{
+    string Titulo = "Lista Profesores";
+    ViewData["Title"] = Titulo;
+    Layout = "~/Views/Shared/_LayoutAdminLt.cshtml";
+}
+
+<h1>@Titulo</h1>
+
+<div>
+    <a asp-action="Create">Crear Profesor</a>
+    <form method="get" class="form-inline" asp-action="Index">
+        <input name="filter" class="form-control" placeholder="Filtro"
+               value="@Model.RouteValue["Filter"]" />
+        <button type="submit" class="btn  btn-default">
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar
+        </button>
+
+        <a asp-action="Create" class="btn btn-primary btn-sm pull-right">
+            <span class="glyphicon glyphicon-plus"></span>  Crear Profesor
+        </a>
+    </form>
+</div>
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.SortableHeaderFor(model => model.IdProfesor)
+            </th>
+            <th>
+                @Html.SortableHeaderFor(model => model.Codigo)
+            </th>
+            <th>
+                @Html.SortableHeaderFor(model => model.Cedula)
+            </th>
+            <th>
+                @Html.SortableHeaderFor(model => model.FechaNacimiento)
+            </th>
+            <th>
+                @Html.SortableHeaderFor(model => model.FechaIngreso)
+            </th>
+            <th>
+                @Html.SortableHeaderFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.SortableHeaderFor(model => model.Apellido)
+            </th>
+            <th>
+                @Html.SortableHeaderFor(model => model.Sexo)
+            </th>
+            <th>
+                @Html.SortableHeaderFor(model => model.EstadoCivil)
+            </th>
+            <th>
+                @Html.SortableHeaderFor(model => model.Ocupación)
+            </th>
+            <th>
+                @Html.SortableHeaderFor(model => model.TipoSangre)
+            </th>
+            <th>
+                @Html.SortableHeaderFor(model => model.Nacionalidad)
+            </th>
+            <th>
+                @Html.SortableHeaderFor(model => model.Religión)
+            </th>
+            <th>
+                @Html.SortableHeaderFor(model => model.Teléfono)
+            </th>
+            <th>
+                @Html.SortableHeaderFor(model => model.Email)
+            </th>
+            <th>
+                @Html.SortableHeaderFor(model => model.Dirección)
+            </th>
+            <th>
+                @Html.SortableHeaderFor(model => model.Carrera)
+            </th>
+            <th>
+                @Html.SortableHeaderFor(model => model.TituloMayor)
+            </th>
+            <th>
+                @Html.SortableHeaderFor(model => model.CategoríaProfesoral)
+            </th>
+            <th>
+                @Html.SortableHeaderFor(model => model.FacultadPertene)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdProfesor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Codigo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cedula)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaNacimiento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaIngreso)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Apellido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sexo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EstadoCivil)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ocupación)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TipoSangre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nacionalidad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Religión)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Teléfono)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dirección)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Carrera)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TituloMayor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoríaProfesoral)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FacultadPertene)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.IdProfesor }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.IdProfesor }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.IdProfesor })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

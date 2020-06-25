@@ -1,0 +1,171 @@
+﻿@model ReflectionIT.Mvc.Paging.PagingList<MonowebApp.Models.Estudiantes>
+
+@{
+    string Titulo = "Lista Estudiante";
+    ViewData["Title"] = Titulo;
+    Layout = "~/Views/Shared/_LayoutAdminLt.cshtml";
+}
+
+<h1>@Titulo</h1>
+
+<div>
+    <a asp-action="Create">Crear Estudiantes</a>
+    <form method="get" class="form-inline" asp-action="Index">
+        <input name="filter" class="form-control" placeholder="Filtro"
+               value="@Model.RouteValue["Filter"]" />
+        <button type="submit" class="btn  btn-default">
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar
+        </button>
+
+        <a asp-action="Create" class="btn btn-primary btn-sm pull-right">
+            <span class="glyphicon glyphicon-plus"></span>  Crear Estudiantes
+        </a>
+    </form>
+</div>
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdEstudiante)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Matricula)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cédula)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaNacimiento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaIngreso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apellido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sexo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EstadoCivil)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ocupación)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoSangre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nacionalidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Religión)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Teléfono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NombrePadre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreMadre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dirección)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoColegio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Carrera)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Observaciones)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdEstudiante)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Matricula)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cédula)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaNacimiento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaIngreso)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Apellido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sexo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EstadoCivil)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ocupación)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TipoSangre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nacionalidad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Religión)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Teléfono)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombrePadre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombreMadre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dirección)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TipoColegio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Carrera)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Observaciones)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.IdEstudiante }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.IdEstudiante }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.IdEstudiante })
+                </td>
+            </tr>
+        }
+    </tbody>
+    <vc:pager paging-list="@Model" />
+</table>

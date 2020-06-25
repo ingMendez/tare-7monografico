@@ -1,0 +1,30 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "twitter-bootstrap@3.4.1",
+      "destination": "wwwroot/lib/twitter-bootstrap-341/"
+    },
+    {
+      "library": "bootstrap-notify@0.2.0",
+      "destination": "wwwroot/lib/bootstrap-notify/"
+    },
+    {
+      "library": "ionicons@5.0.1",
+      "destination": "wwwroot/lib/ionicons/"
+    },
+    {
+      "library": "select2@4.0.13",
+      "destination": "wwwroot/lib/select2/"
+    },
+    {
+      "library": "font-awesome@4.7.0",
+      "destination": "wwwroot/lib/font-awesome/"
+    },
+    {
+      "library": "admin-lte@2.4.18",
+      "destination": "wwwroot/lib/admin-lte/"
+    }
+  ]
+}
