@@ -18,7 +18,7 @@ namespace MonowebApp.Controllers
         public HomeController(IOptions<GlobalSetting> gSettings, IOptions<AppSettings>appSettings)
         {
             _gSettings = gSettings;
-            _appSettings = appSettings;
+          //  _appSettings = appSettings;
         }
         public IActionResult Index()
         {

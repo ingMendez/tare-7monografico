@@ -19,10 +19,12 @@ namespace MonowebApp.Controllers
     public class PersonaController : Controller
     {
         private readonly IOptions<GlobalSetting> _gSettings;
+        private readonly AppDbContext _context;
         //no es recomendable
-        public PersonaController(IOptions<GlobalSetting> gSettings)
+        public PersonaController(IOptions<GlobalSetting> gSettings, AppDbContext context)
         {
             _gSettings = gSettings;
+            _context = context;
         }
        
         // este es el CRUD   de c# web

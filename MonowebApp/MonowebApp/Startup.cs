@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MonowebApp.Models; 
@@ -41,8 +42,17 @@ namespace MonowebApp
                 ConnStr = Configuration.GetConnectionString("devConn");
 
 
-            //inyectar dependiencia a un proyecto de 
-            services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));// inyectar los datos constantes de la app.
+            //dependecy injection de la conexion del sql a los controllers
+              services.AddDbContext<AppDbContext>(options => options.UseSqlServer(ConnStr),
+             ServiceLifetime.Scoped);
+
+         //   dependencia temporal con el antiguo entityframeword
+          //  services.AddDbContext<OldDbContext>(options => options.UseSqlServer(ConnStr),
+           // ServiceLifetime.Scoped);
+
+
+           //inyectar dependiencia a un proyecto de 
+           services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));// inyectar los datos constantes de la app.
             services.Configure<GlobalSetting>(Configuration);   //inyectar los datos constantes de la app.
            //https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/dependency-injection?view=aspnetcore-3.1
 
