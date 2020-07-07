@@ -1,0 +1,126 @@
+﻿  @model IEnumerable<MonowebApp.Models.Tesis>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdTesis)
+            </th>
+            <th>
+                <strong>nombre</strong>
+              @*  @Html.DisplayNameFor(model => model.Imagen)*@
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AutorPersonal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Titulo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Editorial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VolumenDimension)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NotasGenerales)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NotaTesis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NotaBibliografia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NotaDeContenido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NotaDeResumen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NotaSobreOtrosFormulario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EncabezamientoBajoTemasGenerales)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EncabezamientoBajoNombreHeograficos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AsientoSecundarioAutorPersonal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LigaRecursosElectronicos)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdTesis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Imagen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AutorPersonal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Titulo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Editorial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VolumenDimension)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NotasGenerales)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NotaTesis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NotaBibliografia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NotaDeContenido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NotaDeResumen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NotaSobreOtrosFormulario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EncabezamientoBajoTemasGenerales)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EncabezamientoBajoNombreHeograficos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AsientoSecundarioAutorPersonal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LigaRecursosElectronicos)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

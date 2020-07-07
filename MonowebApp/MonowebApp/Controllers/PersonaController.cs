@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿
+using Microsoft.AspNetCore.Mvc;
 using DNTBreadCrumb.Core;
 using Microsoft.AspNetCore.Routing;
 using System.Collections.Generic;
@@ -9,12 +10,22 @@ using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using MonowebApp.Controllers;
+using Microsoft.Extensions.Options;
 
 namespace MonowebApp.Controllers
 {
     [BreadCrumb(Title = "Persona", Url = "/Persona/Index", Order = 0)]
     public class PersonaController : Controller
     {
+        private readonly IOptions<GlobalSetting> _gSettings;
+        private readonly AppDbContext _context;
+        //no es recomendable
+        public PersonaController(IOptions<GlobalSetting> gSettings, AppDbContext context)
+        {
+            _gSettings = gSettings;
+            _context = context;
+        }
        
         // este es el CRUD   de c# web
          public static List<Persona> personas;
@@ -24,7 +35,10 @@ namespace MonowebApp.Controllers
         public ActionResult Index( string filter, int page = 1,
                                         string sortExpression = "Nombre")
         {
-           
+            ViewBag.NombreCompania = _gSettings.Value.NombreCompania;
+            _gSettings.Value.DireccionCompania = "calle salcedo esquina duverge";
+            _gSettings.Value.NombreCompania = "MendezSoff";
+
 
             if (personas == null)
             {

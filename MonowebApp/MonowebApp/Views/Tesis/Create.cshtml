@@ -1,0 +1,108 @@
+﻿@model MonowebApp.Models.Tesis
+
+@{
+    ViewData["Title"] = "Agregar Tesis";
+}
+
+<h1>Agregar Tesis</h1>
+
+<h4>Tesis</h4>
+<hr />
+<div class="row">
+    <div class="col-md-">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="IdTesis" class="control-label">Id de Tesis</label>
+                <input asp-for="IdTesis" class="form-control" />
+                <span asp-validation-for="IdTesis" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Imagen" class="control-label">Insertar Imagen</label>
+                <input asp-for="Imagen" class="form-control" />
+                <span asp-validation-for="Imagen" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AutorPersonal" class="control-label">100 - Autor Personal</label>
+                <input asp-for="AutorPersonal" class="form-control" />
+                <span asp-validation-for="AutorPersonal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Titulo" class="control-label"> 245 - Titulo / Mencion de responsabilidad</label>
+                <input asp-for="Titulo" class="form-control" />
+                <span asp-validation-for="Titulo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Editorial" class="control-label"> </label>
+                <input asp-for="Editorial" class="form-control" />
+                <span asp-validation-for="Editorial" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VolumenDimension" class="control-label"></label>
+                <input asp-for="VolumenDimension" class="form-control" />
+                <span asp-validation-for="VolumenDimension" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NotasGenerales" class="control-label"></label>
+                <input asp-for="NotasGenerales" class="form-control" />
+                <span asp-validation-for="NotasGenerales" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NotaTesis" class="control-label"></label>
+                <input asp-for="NotaTesis" class="form-control" />
+                <span asp-validation-for="NotaTesis" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NotaBibliografia" class="control-label"></label>
+                <input asp-for="NotaBibliografia" class="form-control" />
+                <span asp-validation-for="NotaBibliografia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NotaDeContenido" class="control-label"></label>
+                <input asp-for="NotaDeContenido" class="form-control" />
+                <span asp-validation-for="NotaDeContenido" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NotaDeResumen" class="control-label"></label>
+                <input asp-for="NotaDeResumen" class="form-control" />
+                <span asp-validation-for="NotaDeResumen" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NotaSobreOtrosFormulario" class="control-label"></label>
+                <input asp-for="NotaSobreOtrosFormulario" class="form-control" />
+                <span asp-validation-for="NotaSobreOtrosFormulario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EncabezamientoBajoTemasGenerales" class="control-label"></label>
+                <input asp-for="EncabezamientoBajoTemasGenerales" class="form-control" />
+                <span asp-validation-for="EncabezamientoBajoTemasGenerales" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EncabezamientoBajoNombreHeograficos" class="control-label"></label>
+                <input asp-for="EncabezamientoBajoNombreHeograficos" class="form-control" />
+                <span asp-validation-for="EncabezamientoBajoNombreHeograficos" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AsientoSecundarioAutorPersonal" class="control-label"></label>
+                <input asp-for="AsientoSecundarioAutorPersonal" class="form-control" />
+                <span asp-validation-for="AsientoSecundarioAutorPersonal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LigaRecursosElectronicos" class="control-label"></label>
+                <input asp-for="LigaRecursosElectronicos" class="form-control" />
+                <span asp-validation-for="LigaRecursosElectronicos" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
