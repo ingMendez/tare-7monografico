@@ -10,7 +10,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using MonowebApp.Models; 
+using MonowebApp.Models;
+using MonowebApp.Repositorios;
+using MonowebApp.Repositorios.Base;
 
 namespace MonowebApp
 {
@@ -39,20 +41,31 @@ namespace MonowebApp
             -----------------------------------------------------------------*/
             string ConnStr = Configuration.GetConnectionString("prodConn");
             if (Configuration.GetSection("AppSettings")["EnProduccion"].Equals("No"))
+            {
                 ConnStr = Configuration.GetConnectionString("devConn");
+            }
+                
 
 
             //dependecy injection de la conexion del sql a los controllers
               services.AddDbContext<AppDbContext>(options => options.UseSqlServer(ConnStr),
              ServiceLifetime.Scoped);
 
-         //   dependencia temporal con el antiguo entityframeword
-          //  services.AddDbContext<OldDbContext>(options => options.UseSqlServer(ConnStr),
-           // ServiceLifetime.Scoped);
+            //   dependencia temporal con el antiguo entityframeword
+            //  services.AddDbContext<OldDbContext>(options => options.UseSqlServer(ConnStr),
+            // ServiceLifetime.Scoped);
 
-
-           //inyectar dependiencia a un proyecto de 
-           services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));// inyectar los datos constantes de la app.
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            //Inyecta el repositorio generico CRUD a todos los controllers.                                   //
+            services.AddScoped<IMarcaRepo, MarcaRepo>();                                                      //       INYECCION DE DEPENDENCIA DE LOS REPOSITORIOS.
+            services.AddScoped<IModeloRepo, ModeloRepo>();                                                    //
+                                                                                                              //
+            //Inyectamos el repoWrapper                                                                       //
+            services.AddScoped<IRepoWrapper, RepoWrapper>();                                                  //
+                                                                                                              //  
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            //inyectar dependiencia a un proyecto de 
+            services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));// inyectar los datos constantes de la app.
             services.Configure<GlobalSetting>(Configuration);   //inyectar los datos constantes de la app.
            //https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/dependency-injection?view=aspnetcore-3.1
 
@@ -74,6 +87,7 @@ namespace MonowebApp
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();

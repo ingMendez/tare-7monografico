@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 using MonowebApp.Models;
-
+using MonowebApp.Repositorios.Base;
 
 namespace MonowebApp.Models
 {
-    public class Marca
+    [Table("tblMarcas")]
+    public class Marca : ICamposControl
     {
         [Key]
         public int IdMarca { get; set; }

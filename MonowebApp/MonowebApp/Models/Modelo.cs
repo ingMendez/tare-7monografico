@@ -1,12 +1,15 @@
-﻿using System;
+﻿using MonowebApp.Repositorios.Base;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace MonowebApp.Models
 {
-    public class Modelo
+    [Table("tblModelos")]
+    public class Modelo : ICamposControl
     {
         [Key]
         public int IdModelo { get; set; }
@@ -19,7 +22,7 @@ namespace MonowebApp.Models
         public string Nombre { get; set; }
         public int Año { get; set; }
 
-      //  [Column("Version", TypeName = "varchar(20)")]
+        [Column("Version", TypeName = "varchar(20)")]
         public string Version { get; set; }
         public DateTime Creado { get; set; }
         public DateTime Modificado { get; set; }

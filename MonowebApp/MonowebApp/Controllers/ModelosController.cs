@@ -2,20 +2,29 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MonowebApp.Models;
+using MonowebApp.Repositorios;
+using MonowebApp.Repositorios.Base;
 
 namespace MonowebApp.Controllers
 {
     public class ModelosController : Controller
     {
         private readonly AppDbContext _context;
+        private readonly IMarcaRepo _repo;
+        private readonly IModeloRepo _repoModelo;
+        private readonly ModeloRepo _repoModeloPrueba;
 
-        public ModelosController(AppDbContext context)
+        public ModelosController(AppDbContext context, IMarcaRepo repo, IModeloRepo repoModelo)
         {
             _context = context;
+            _repo = repo;
+            _repoModelo = repoModelo;
+            _repoModeloPrueba = new ModeloRepo(context);
         }
 
         // GET: Modelos
@@ -33,9 +42,11 @@ namespace MonowebApp.Controllers
                 return NotFound();
             }
 
-            var modelo = await _context.Modelo
-                .Include(m => m.Marca)
-                .FirstOrDefaultAsync(m => m.IdModelo == id);
+            /*  var modelo = await _context.Modelo
+                  .Include(m => m.Marca)
+                  .FirstOrDefaultAsync(m => m.IdModelo == id);*/
+            var modelo = await _repoModelo.BuscarPorId(id);
+
             if (modelo == null)
             {
                 return NotFound();
@@ -45,9 +56,13 @@ namespace MonowebApp.Controllers
         }
 
         // GET: Modelos/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            ViewData["IdMarca"] = new SelectList(_context.Marca, "IdMarca", "IdMarca");
+            // ViewData["IdMarca"] = new SelectList(_context.Marca, "IdMarca", "Nombre");
+
+            // ViewData["IdMarca"] = new SelectList(_repo.BuscarTodo(), "IdMarca", "Nombre");
+
+            ViewData["IdMarca"] = new SelectList(await _repo.GetGenericList(), "Id", "Name");
             return View();
         }
 
